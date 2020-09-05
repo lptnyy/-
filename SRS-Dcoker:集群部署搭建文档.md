@@ -47,7 +47,7 @@
     WORKDIR /srs/trunk
     CMD ["./objs/srs","-c","conf/dege.conf"]   
     
-## 构建自定义镜像
+## 五 构建自定义镜像
     cd 源站服务文件夹中构建镜像
     docker build -t srs-source-service:1.0 .
     cd 边缘服务文件夹中构建镜像
