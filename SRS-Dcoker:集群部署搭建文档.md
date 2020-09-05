@@ -23,7 +23,7 @@
 ## 二 边缘服务配置文件  
     vi edge.conf
     以下配置文件内容
-    listen              1935;
+    listen              19351;
     max_connections     1000;
     pid                 objs/edge.pid;
     daemon              off;
@@ -46,3 +46,10 @@
     COPY dege.conf /srs/trunk/conf/dege.conf
     WORKDIR /srs/trunk
     CMD ["./objs/srs","-c","conf/dege.conf"]   
+    
+## 构建自定义镜像
+    cd 源站服务文件夹中构建镜像
+    docker build -t srs-source-service:1.0 .
+    cd 边缘服务文件夹中构建镜像
+    docker build -t srs-dege-service:1.0 .
+   
