@@ -34,3 +34,15 @@
            origin          source1:19351;
         }
     }
+## 三 编写源站服务Dockerfile  
+    FORM registry.ap-southeast-1.aliyuncs.com/leiyu/rtmp-srs:1.0
+    MAINTAINER lptnii@qq.com
+    COPY service.conf /srs/trunk/conf/service.conf
+    WORKDIR /srs/trunk
+    CMD ["./objs/srs","-c","conf/service.conf"]
+## 四 编写边缘服务Dockerfile 
+    FORM registry.ap-southeast-1.aliyuncs.com/leiyu/rtmp-srs:1.0
+    MAINTAINER lptnii@qq.com
+    COPY dege.conf /srs/trunk/conf/dege.conf
+    WORKDIR /srs/trunk
+    CMD ["./objs/srs","-c","conf/dege.conf"]   
