@@ -31,7 +31,7 @@
     vhost __defaultVhost__ {
         cluster {
            mode            remote;
-           origin          source1:19351;
+           origin          source1:19350;
         }
     }
 ## 三 编写源站服务Dockerfile  
