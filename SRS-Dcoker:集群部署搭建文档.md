@@ -56,4 +56,4 @@
     启动源站服务容器  
     docker run -d -p 19350:19350 --name srssource1 srs-source-service:1.0  
     启动边缘服务容器  
-    docker run -d -p 19350:19350 --name --link srssource1 srsdege1 srs-dege-service:1.0  
+    docker run -d -p 19351:19351 --name --link srssource1 srsdege1 srs-dege-service:1.0  
