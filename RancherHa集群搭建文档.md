@@ -1,5 +1,5 @@
 # Rancher Ha 集群搭建手顺
-## 虚拟机/云服务器/物理服务器 etcd 正式环境部署最少3节点
+## 虚拟机/云服务器/物理服务器 k8s rancher etcd 正式环境部署最少3节点
     rancher_server1 192.168.10.50 (centos 7) nginx
     rancher_server2 192.168.10.51 (centos 7) k8s rancher etcd
     rancher_server3 192.168.10.52 (centos 7) k8s rancher etcd
