@@ -95,12 +95,12 @@
     EOF
     sudo systemctl daemon-reload
     sudo systemctl restart docker
-## 安装RKE (某一台服务器)
+## 安装RKE (rancher_server1)
     # 下载官方最新包
         wget https://github.com/rancher/rke/releases/download/v1.2.4-rc9/rke_linux-arm64
         mv rke_linux-arm64 /usr/bin/rke
         chnod 777 /usr/bin/rke
-## 编写RKE配置文件安装Kubernetes(k8s)集群环境（某一台服务器）
+## 编写RKE配置文件安装Kubernetes(k8s)集群环境（rancher_server1）
     vi rancher-cluster.yml 
     nodes:
       - address: 192.168.10.51
@@ -119,7 +119,7 @@
     # 配置环境变量
         export KUBECONFIG=/路径/rancher-cluster.yml 
             
-## 安装kubectl 查看集群环境（某一台服务器）
+## 安装kubectl 查看集群环境（rancher_server1）
     # 切换到root用户  
         su root
     # 下载地址 
@@ -135,7 +135,7 @@
         NAME            STATUS   ROLES                      AGE   VERSION
         192.168.10.51   Ready    controlplane,etcd,worker   85m   v1.19.6
         192.168.10.52   Ready    controlplane,etcd,worker   85m   v1.19.6
-## 安装helm（某一台服务器）
+## 安装helm（rancher_server1）
     # 下载地址  
         https://github.com/helm/helm/releases/tag/v3.4.2 
     # 解压 
@@ -144,7 +144,7 @@
         mv helm /usr/bin
     # 安装 Helm Chart 仓库
         helm repo add rancher-stable http://rancher-mirror.oss-cn-beijing.aliyuncs.com/server-charts/stable
-## 安装证书服务cert-manager 
+## 安装证书服务cert-manager(rancher_server1) 
     # k8s 环境创建命名空间
         kubectl create namespace cattle-system
     # 安装 cert-manager
@@ -162,7 +162,7 @@
          --version v0.15.0
     # 验证是否部署成功 cert-manager
         kubectl get pods --namespace cert-manager   获取该命名空间下的所有pod 
-## 安装rancher 
+## 安装rancher(rancher_server1)
     # 此方式部署的是rancher自动生成证书方式  自有证书查看官网介绍。 
       官方地址 https://docs.rancher.cn/docs/rancher2/installation/k8s-install/helm-rancher/_index
     # 安装命令
@@ -173,7 +173,9 @@
         kubectl -n cattle-system rollout status deploy/rancher
         Waiting for deployment "rancher" rollout to finish: 0 of 3 updated replicas are available...
         deployment "rancher" successfully rolled out
-## 配置 nginx
+    # 访问域名   安装命令当中的 --set hostname=rancher.my.org
+      rancher.my.org
+## 配置 nginx （搭建省略）
     # 配置nginx 配置文件 
         vi nginx.conf
         输入一下内容 
@@ -208,4 +210,5 @@
             }
         }
     # 下载nginx docker镜像
-       
+## 如果在局域网中访问域名 配置hosts文件(访问rancher的电脑)
+    192.168.10.51 rancher.my.org     ip 可以是nginx ip  也可以是集群当中某一台服务器的ip
