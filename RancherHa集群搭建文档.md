@@ -117,9 +117,9 @@
     # 执行命令  安装集群环境 环境创建成功之后 会生成一个配置文件 
         rke up --config rancher-cluster.yml  自动生成kube_config_rancher-cluster.yml 就是集群文件需要好好保存
     # 配置环境变量
-        export KUBECONFIG=/路径/rancher-cluster.yml 
+        export KUBECONFIG=/路径/kube_config_rancher-cluster.yml
             
-## 安装kubectl 查看集群环境（rancher_server1）
+## 安装kubectl 查看集群环境（rancher_server1
     # 切换到root用户  
         su root
     # 下载地址 
