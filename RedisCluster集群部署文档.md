@@ -1,6 +1,6 @@
 # redis6 集群搭建手顺
 ## 虚拟机/云服务器/物理服务器 推荐3台服务器 搭建 3主 3从
-   192.168.10.53 redis_server   # 一台虚拟机
+   192.168.10.53 redis_server
    
 ## 安装redis
     ## 下载 
@@ -47,8 +47,7 @@
        redis4 端口7004   port
        cluster-config-file nodes4.conf
        redis5 端口7005   port
-       cluster-config-file nodes5.conf
-       redis6 端口7006   port
+       cluster-config-file nodes5.con       redis6 端口7006   port
        cluster-config-file nodes6.conf
        
 ## 运行集群
